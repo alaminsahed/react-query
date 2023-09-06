@@ -3,7 +3,8 @@ import './App.css';
 import SuperHeroesPage from "./components/SuperHeroesPage";
 import HomePage from "./components/HomePage";
 import RQSuperHeroesPage from "./components/RQSuperHeroesPage";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider, } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 function App() {
   const queryClient = new QueryClient()
@@ -32,6 +33,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
     </QueryClientProvider>
   );
 }
