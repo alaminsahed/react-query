@@ -8,8 +8,8 @@ const fetchData = () => {
 }
 
 const RQSuperHeroesPage = () => {
-    // data is automatically updated in every 2s of seconds
-    const { isLoading, data, isError, error, isFetching } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, refetchInterval: 2000, refetchIntervalInBackground: true });
+    // data is refetch only when any event is received
+    const { isLoading, data, isError, error, isFetching, refetch } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, enabled: true });
 
     if (isLoading) {
         return <h1>Loading...</h1>
@@ -24,6 +24,7 @@ const RQSuperHeroesPage = () => {
     return (
         <div>
             <h1>RQSuperHeroesPage</h1>
+            <button onClick={refetch}>Fetch Data</button>
             {
                 data && data.data.map(superhero => (
                     <div key={superhero.name}>{superhero.name}</div>
