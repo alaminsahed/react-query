@@ -8,10 +8,14 @@ const fetchData = () => {
 }
 
 const RQSuperHeroesPage = () => {
-    const { isLoading, data } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData });
+    const { isLoading, data, isError, error } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData });
 
     if (isLoading) {
         return <h1>Loading...</h1>
+    }
+
+    if (isError) {
+        return <h1>Error: {error.message}</h1>
     }
 
     return (
