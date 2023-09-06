@@ -4,20 +4,27 @@ import { useQuery } from '@tanstack/react-query';
 
 
 const fetchData = () => {
-    return axios.get('http://localhost:4001/superheroes')
+    return axios.get('http://localhost:4001/superheroes1')
 }
 
 const RQSuperHeroesPage = () => {
-    // data is refetch only when any event is received
-    const { isInitialLoading, isLoading, data, isError, error, isFetching, refetch } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, enabled: false });
+    // event on success or failure
+    const onSuccess = (data) => {
+        console.log('onSuccess', data);
+    }
 
-    // if (isLoading) {
-    //     return <h1>Loading...</h1>
-    // }
+    const onError = (error) => {
+        console.log('onError', error);
+    }
+    const { isLoading, data, isError, error, isFetching } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, onSuccess, onError });
 
-    if (isInitialLoading) {
+    if (isLoading) {
         return <h1>Loading...</h1>
     }
+
+    // if (isInitialLoading) {
+    //     return <h1>Loading...</h1>
+    // }
 
     if (isError) {
         return <h1>Error: {error.message}</h1>
@@ -28,7 +35,7 @@ const RQSuperHeroesPage = () => {
     return (
         <div>
             <h1>RQSuperHeroesPage</h1>
-            <button onClick={refetch}>Fetch Data</button>
+            {/* <button onClick={refetch}>Fetch Data</button> */}
             {
                 data?.data.map(superhero => (
                     <div key={superhero.name}>{superhero.name}</div>
