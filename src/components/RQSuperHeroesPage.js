@@ -9,9 +9,13 @@ const fetchData = () => {
 
 const RQSuperHeroesPage = () => {
     // data is refetch only when any event is received
-    const { isLoading, data, isError, error, isFetching, refetch } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, enabled: true });
+    const { isInitialLoading, isLoading, data, isError, error, isFetching, refetch } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, enabled: false });
 
-    if (isLoading) {
+    // if (isLoading) {
+    //     return <h1>Loading...</h1>
+    // }
+
+    if (isInitialLoading) {
         return <h1>Loading...</h1>
     }
 
@@ -26,7 +30,7 @@ const RQSuperHeroesPage = () => {
             <h1>RQSuperHeroesPage</h1>
             <button onClick={refetch}>Fetch Data</button>
             {
-                data && data.data.map(superhero => (
+                data?.data.map(superhero => (
                     <div key={superhero.name}>{superhero.name}</div>
                 ))
             }
