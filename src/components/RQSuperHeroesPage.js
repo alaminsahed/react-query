@@ -8,7 +8,7 @@ const fetchData = () => {
 }
 
 const RQSuperHeroesPage = () => {
-    const { isLoading, data, isError, error, isFetching } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, staleTime: 3000 });
+    const { isLoading, data, isError, error, isFetching } = useQuery({ queryKey: ['superheroes'], queryFn: fetchData, refetchOnMount: false, refetchOnWindowFocus: false });
 
     if (isLoading) {
         return <h1>Loading...</h1>
