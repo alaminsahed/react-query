@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useSuperHeroData } from '../hooks/useSuperHeroData';
 
 
-const fetchData = () => {
-    return axios.get('http://localhost:4001/superheroes')
-}
+
 
 const RQSuperHeroesPage = () => {
     // we can transform data into something using select.
@@ -16,12 +15,7 @@ const RQSuperHeroesPage = () => {
     const onError = (error) => {
         console.log('onError', error);
     }
-    const { isLoading, data, isError, error, isFetching } = useQuery({
-        queryKey: ['superheroes'], queryFn: fetchData, onSuccess, onError, select: (data) => {
-            const heroNames = data.data.map(data => data.name);
-            return heroNames;
-        }
-    });
+    const { isLoading, data, isError, error, isFetching } = useSuperHeroData({ onError, onSuccess });
 
     if (isLoading) {
         return <h1>Loading...</h1>
