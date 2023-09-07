@@ -6,10 +6,11 @@ export const useSuperHeroData = ({ onSuccess, onError }) => {
         return axios.get('http://localhost:4001/superheroes')
     }
     return useQuery({
-        queryKey: ['superheroes'], queryFn: fetchData, onSuccess, onError, select: (data) => {
-            const heroNames = data.data.map(data => data.name);
-            return heroNames;
-        }
+        queryKey: ['superheroes'], queryFn: fetchData, onSuccess, onError,
+        //  select: (data) => {
+        //     const heroNames = data.data.map(data => data.name);
+        //     return heroNames;
+        // }
     });
 };
 
