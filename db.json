@@ -29,5 +29,17 @@
       "id": 3,
       "name": "Rachel Green"
     }
+  ],
+  "users": [
+    {
+      "id": "alaminsahed",
+      "gitId": "@alaminsahed"
+    }
+  ],
+  "programming": [
+    {
+      "id": "@alaminsahed",
+      "languages": ["react", "vue", "angular"]
+    }
   ]
 }
