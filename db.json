@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Wonder Woman 3",
       "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "jasdajsha",
+      "alterEgo": "jasdhasdhsa",
+      "id": 4
     }
   ],
   "friends": [
@@ -39,7 +44,11 @@
   "programming": [
     {
       "id": "@alaminsahed",
-      "languages": ["react", "vue", "angular"]
+      "languages": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [

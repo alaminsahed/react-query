@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 export const useSuperHeroData = ({ onSuccess, onError }) => {
@@ -14,3 +14,11 @@ export const useSuperHeroData = ({ onSuccess, onError }) => {
     });
 };
 
+const addSuperHero = hero => {
+    return axios.post('http://localhost:4001/superheroes', hero)
+}
+
+export const useAddSuperHeroData = () => {
+    console.log("++++");
+    return useMutation(addSuperHero)
+}
