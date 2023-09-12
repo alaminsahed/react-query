@@ -12,7 +12,6 @@ const fetchLanguagesData = (gitId) => {
 
 const DependentQueries = ({ email }) => {
     const { data: user } = useQuery(['user-data', email], () => fetchUsersData(email));
-    console.log("user", user);
     const gitId = user?.data.gitId
     const { data: languages } = useQuery({ queryKey: ['languages', gitId], queryFn: () => fetchLanguagesData(gitId), enable: !!gitId })
     return (
