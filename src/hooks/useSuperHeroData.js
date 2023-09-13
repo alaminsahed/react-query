@@ -21,8 +21,15 @@ const addSuperHero = hero => {
 export const useAddSuperHeroData = () => {
     const queryClient = useQueryClient();
     return useMutation(addSuperHero, {
-        onSuccess: () => {
-            queryClient.invalidateQueries('superheroes')
+        onSuccess: (data) => {
+            //queryClient.invalidateQueries('superheroes')
+            // set queries update the cache value and show the updated data
+            queryClient.setQueryData(['superheroes'], (oldQueryData) => {
+                console.log("++", oldQueryData, data);
+                return {
+                    ...oldQueryData.data, data: [...oldQueryData.data, data.data]
+                }
+            })
         }
     })
 }

@@ -34,6 +34,51 @@
       "name": "Iron man",
       "alterEgo": "hero",
       "id": 7
+    },
+    {
+      "name": "Fat man",
+      "alterEgo": "Green Man",
+      "id": 8
+    },
+    {
+      "name": "Fat woman",
+      "alterEgo": "Green Woman",
+      "id": 9
+    },
+    {
+      "name": "Fat",
+      "alterEgo": "Green",
+      "id": 10
+    },
+    {
+      "name": "Fat Green Man",
+      "alterEgo": "Green Woman",
+      "id": 11
+    },
+    {
+      "name": "Machine Man",
+      "alterEgo": "Manna",
+      "id": 12
+    },
+    {
+      "name": "Machine Woman",
+      "alterEgo": "Manna",
+      "id": 13
+    },
+    {
+      "name": "Test ",
+      "alterEgo": "working",
+      "id": 14
+    },
+    {
+      "name": "Test 2",
+      "alterEgo": "working",
+      "id": 15
+    },
+    {
+      "name": "Test 3",
+      "alterEgo": "working",
+      "id": 16
     }
   ],
   "friends": [
